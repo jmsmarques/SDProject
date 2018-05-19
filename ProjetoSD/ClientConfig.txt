@@ -1,0 +1,2 @@
+serverPort=6000
+hostname=169.254.176.22

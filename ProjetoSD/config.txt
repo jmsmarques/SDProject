@@ -1,0 +1,9 @@
+RMI registry.
+Go to cmd, enter project bin.
+path=C:\Program Files\Java\jre1.8.0_144\bin
+set classpath=C:\Users\Jorge\Desktop\ProjetoSD\ProjetoSD\bin
+start rmiregistry port
+
+Oracle Database
+download and install oracle database (http://www.oracle.com/technetwork/database/database-technologies/express-edition/overview/index.html)
+download ojdbc.jar(https://www.javatpoint.com/src/jdbc/ojdbc14.jar) to C:\Program Files\Java\jre1.8.0_144\lib\ext

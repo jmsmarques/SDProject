@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The core configuration file for the framework is the default (struts.xml) file
+and should reside on the classpath of the webapp (generally /WEB-INF/classes). -->
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  <!-- devMode equals debug information and reload everything for every request -->
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.ui.theme" value="simple" />
+  <constant name="struts.action.excludePattern" value="/ws"/>
+
+  <package name="default" extends="struts-default">
+	
+	<default-action-ref name="login" />
+	<!-- 
+	<global-results>
+		<result name="error">/error.jsp</result>
+	</global-results>
+	-->
+	<!-- all exceptions not caught by the application will lead to error.jsp -->
+	<!-- 
+	<global-exception-mappings>
+		<exception-mapping exception="java.lang.Exception" result="error" />
+	</global-exception-mappings>
+	-->
+	<!-- 'login' action calls 'execute' in 'LoginAction' -->
+    <action name="login" class="login.action.LoginAction" method="execute">
+      <result name="success">/jsp/admin/user/createperson.jsp</result>
+      <result name="voter">/jsp/tcp/voter.jsp</result>
+      <result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <!--  user action -->
+    <action name = "registeruser" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/user/createuserresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changeuser" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/user/changeuserresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removeuser" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/user/removeuserresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "infouser" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/user/infouserresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of user action -->    
+    
+    <!-- colleges actions -->
+    <action name = "createcollege" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/college/createcollegeresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changecollege" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/college/changecollegeresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removecollege" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/college/removecollegeresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of colleges actions -->
+
+    <!-- department actions -->
+    <action name = "createdepartment" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/department/createdepartmentresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changedepartment" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/department/changedepartmentresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removedepartment" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/department/removedepartmentresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!--  end of department actions -->
+    
+    <!-- election actions -->
+    <action name = "createelection" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/createelectionresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changeelection" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/changeelectionresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removeelection" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/removeelectionresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "infoelection" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/infoelectionresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "electionsdetails" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/electiondetailsresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of election actions -->
+    <action name = "createtable" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/table/createtableresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removetable" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/table/removetableresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "addpersontable" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/table/addpersontableresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removepersontable" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/table/removepersontableresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <!-- table actions -->
+    <action name = "createlist" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/list/createlistresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removelist" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/list/removelistresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "addpersonlist" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/list/addpersonlistresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removepersonlist" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/list/removepersonlistresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of table actions -->
+    
+    <!-- nr votes actions -->
+    <action name = "getnrvotes" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/nrvotes/nrvotesresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of nr votes action -->
+    
+    <!-- vote in advance actions -->
+    <action name = "getelectionsforvote" class = "admin.action.ListElectionsAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvanceelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "getlistsforvote" class = "admin.action.ListListsAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvancelists.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "voteinadvancevote" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvanceresult.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of vote in advance actions -->
+    
+    <!-- navigation actions -->
+    <action name = "logout" class="admin.action.nav.LogoutAction" method="execute">
+    	<result name="success">/jsp/index/index.jsp</result>
+    </action>
+    
+    <!-- user navigation -->    
+    <action name = "createusers" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/user/createperson.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removeusers" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/user/removeperson.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changeusers" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/user/changeperson.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "userselectioninfo" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/user/infoperson.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+	<!-- end of user navigation -->
+	
+	<!-- college navigation -->
+    <action name = "createcolleges" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/college/createcollege.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removecolleges" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/college/removecollege.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changecolleges" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/college/changecollege.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of college navigation -->
+    
+    <!-- department navigation -->
+    <action name = "departments" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/department/createdepartment.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removedepartments" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/department/removedepartment.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changedepartments" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/department/changedepartment.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!--  end of department navigation -->
+    
+    <!-- election navigation -->
+    <action name = "elections" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/election/createelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removeelections" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/election/removeelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "changeelections" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/election/changeelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "infoelections" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/election/infoelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "detailselections" class = "admin.action.AdminAction" method="execute">
+    	<result name="success">/jsp/admin/election/electionsdetails.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of election navigation -->
+    
+    <!-- list navigation -->
+    <action name = "lists" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/list/createlist.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removelists" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/list/removelist.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "addpersonlists" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/list/addpersonlist.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removepersonlists" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/list/removepersonlist.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of list navigation  -->
+    
+    <!-- table navigation -->
+    <action name = "tables" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/table/createtable.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removetables" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/table/removetable.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "addpersontables" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/table/addpersontable.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "removepersontables" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/table/removepersontable.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "tableinfo" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/table/tableinfo.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of table navigation -->
+    
+    <!-- vote in advance navigation -->
+    <action name = "inadvance" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvance.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "backinadvance" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvance.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "backinadvanceelection" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/voteinadvance/voteinadvanceelection.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of vote in advance navigation -->
+    
+    <!-- nr of votes navigation -->
+    <action name = "nrvotes" class="admin.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/admin/nrvotes/nrvotes.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <!-- end of nr of votes navigation -->
+    
+    
+     <!-- voter natigation and actions -->
+   
+   
+    
+    
+    
+    
+    
+    
+    
+    <action name = "voterlogout" class="voter.action.nav.LogoutAction" method="execute">
+    	<result name="success">/jsp/index/index.jsp</result>
+    </action>
+    
+     <action name = "votervote" class="voter.actions.VoterAction" method="execute">
+    	<result name="success">/jsp/tcp/votervote.jsp</result>
+    	<result name="empty">/jsp/tcp/votervoteempty.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "voterinfo" class="voter.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/tcp/voterinfo.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    <action name = "voterabout" class="voter.action.nav.NavigationAction" method="execute">
+    	<result name="success">/jsp/tcp/voterabout.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+     <action name = "votervotelist" class="voter.actions.VoterAction" method="executeList">
+    	<result name="success">/jsp/tcp/votervotelist.jsp</result>
+    	<result name="empty">/jsp/tcp/votervoteempty.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    
+    
+    
+    <action name = "votervotefinal" class="voter.actions.VoterAction" method="executeVote">
+    	<result name="success" type = "redirect">${FacebookUrl}</result>
+    	<result name="rep">/jsp/tcp/votervoterep.jsp</result>
+    	<result name="erro">/jsp/tcp/votervoteerro.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    <action name = "votervotefinal2" class="voter.actions.VoterAction" method="executeVote2">
+    	<result name="success">/jsp/tcp/voterdone.jsp</result>
+    	<result name="empty">/jsp/tcp/votervoteempty.jsp</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    </action>
+    
+    
+    
+    
+    
+    <action name = "voterfaceassociation2" class="voter.actions.VoterAction" method="faceAssociation2">
+    	<result name="success" >/jsp/tcp/associationdone.jsp</result>
+    	<result name="fail">/jsp/tcp/associationfail.jsp</result>
+    	
+    </action>
+    <action name = "voterfaceassociation" class="voter.actions.VoterAction" method="faceAssociation">
+    	<result name="success" type = "redirect">${FacebookUrl}</result>
+    	<result name="login">/jsp/index/index.jsp</result>
+    	
+    	
+    </action>
+    <action name = "voterfacelogin" class="login.action.LoginAction" method="faceLogin">
+     <result name="success" type = "redirect">${FacebookUrl}</result>
+    	
+    	<result name="login">/jsp/index/index.jsp</result>
+    	
+    	
+    </action>
+    <action name = "voterfacelogin2" class="login.action.LoginAction" method="faceLogin2">
+    
+    	<result name="success">/jsp/tcp/voter.jsp</result>
+    	
+    	<result name="login">/jsp/index/index.jsp</result>
+    	
+    	
+    </action>
+    	
+    
+   <!-- end of voter nav and actions -->
+  </package>
+
+</struts>
+

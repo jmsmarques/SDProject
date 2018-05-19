@@ -1,0 +1,10 @@
+RMI Registry Hostname=localhost
+port=7000
+name=porto
+timeout=7500
+UDP port=6500
+UDP target port=6501
+UDP hostname=localhost
+DB username=bdProj
+DB password=bdProj
+DB hostname=localhost

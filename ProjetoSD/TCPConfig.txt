@@ -1,0 +1,4 @@
+hostname=localhost
+serverPort=6002
+rmiPort=7000
+rmiName=porto
